@@ -21,7 +21,7 @@ permissions:
 
 jobs:
   version-docs:
-    runs-on: [self-hosted, Linux]
+    runs-on: [self-hosted, Linux, ARM64, oci-light]
     steps:
       - name: Checkout
         uses: actions/checkout@v5
