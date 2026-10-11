@@ -14,7 +14,7 @@ concurrency:
 
 jobs:
   relay:
-    runs-on: [self-hosted, Linux]
+    runs-on: [self-hosted, Linux, ARM64, oci-light]
     steps:
       - name: Dispatch Docs Deploy on main
         env:
