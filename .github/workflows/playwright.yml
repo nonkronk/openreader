@@ -10,7 +10,7 @@ jobs:
   e2e-testing:
     timeout-minutes: 30
     if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
-    runs-on: [self-hosted, Linux]
+    runs-on: [self-hosted, Linux, X64, openreader]
     env:
       USE_EMBEDDED_WEED_MINI: true
       BASE_URL: http://127.0.0.1:3003
