@@ -20,7 +20,7 @@ permissions:
 
 jobs:
   prepare:
-    runs-on: [self-hosted, Linux]
+    runs-on: [self-hosted, Linux, X64, openreader]
     outputs:
       web_image_name: ${{ steps.image-name.outputs.web_image_name }}
       web_legacy_image_name: ${{ steps.image-name.outputs.web_legacy_image_name }}
@@ -48,25 +48,25 @@ jobs:
           - image_target: web
             arch: amd64
             platform: linux/amd64
-            runner: [self-hosted, Linux]
+            runner: [self-hosted, Linux, X64, openreader]
             context: .
             dockerfile: ./Dockerfile
           - image_target: web
             arch: arm64
             platform: linux/arm64
-            runner: [self-hosted, Linux]
+            runner: [self-hosted, Linux, X64, openreader]
             context: .
             dockerfile: ./Dockerfile
           - image_target: compute-worker
             arch: amd64
             platform: linux/amd64
-            runner: [self-hosted, Linux]
+            runner: [self-hosted, Linux, X64, openreader]
             context: .
             dockerfile: ./packages/compute-worker/Dockerfile
           - image_target: compute-worker
             arch: arm64
             platform: linux/arm64
-            runner: [self-hosted, Linux]
+            runner: [self-hosted, Linux, X64, openreader]
             context: .
             dockerfile: ./packages/compute-worker/Dockerfile
 
@@ -134,9 +134,9 @@ jobs:
       matrix:
         include:
           - image_target: web
-            runner: [self-hosted, Linux]
+            runner: [self-hosted, Linux, X64, openreader]
           - image_target: compute-worker
-            runner: [self-hosted, Linux]
+            runner: [self-hosted, Linux, X64, openreader]
     steps:
       - name: Download digests
         uses: actions/download-artifact@v8
